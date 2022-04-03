@@ -54,4 +54,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    //Material Dialogs
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
 }
