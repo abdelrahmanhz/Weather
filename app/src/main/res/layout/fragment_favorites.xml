@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritesFragment">
+    android:id="@+id/favRoot"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".favorites.view.fragment.FavoritesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="favorites" />
+        android:id="@+id/favSwipe">
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#ffffff"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:focusable="true"
+        app:borderWidth="0dp"
+        app:srcCompat="@drawable/ic_favorite"
+        app:tint="#FA3939"
+        tools:ignore="ImageContrastCheck" />
+
+</RelativeLayout>

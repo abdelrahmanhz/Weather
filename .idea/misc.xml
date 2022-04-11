@@ -3,12 +3,43 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/card_background.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_alarm_svgrepo_com.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_alert.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_baseline_add_alert_24.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_baseline_cloud_24.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_baseline_watch_later_24.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_baseline_wb_sunny_24.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_current_location.xml" value="0.290625" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_current_location_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_home.xml" value="0.290625" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_humidity_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_map_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_moon_svgrepo_com.xml" value="0.1421875" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_pressure_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_settings.xml" value="0.1421875" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_snow_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_sun_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/ic_wind_svgrepo_com.xml" value="0.12916666666666668" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/drawable/logo.xml" value="0.12916666666666668" />
         <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/activity_map.xml" value="0.27447916666666666" />
         <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/choose_loc_dialog.xml" value="0.264" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/daily_weather_row.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/day_item.xml" value="0.4" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fav_item.xml" value="0.264" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fav_row.xml" value="0.4" />
         <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_alerts.xml" value="0.1" />
-        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_favorites.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_fav_details.xml" value="0.205859375" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_favorites.xml" value="0.3353658536585366" />
         <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_maps.xml" value="0.136" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/fragment_splash.xml" value="0.17760416666666667" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/hour_item.xml" value="0.72" />
+        <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/layout/hourly_weather_row.xml" value="0.27447916666666666" />
         <entry key="..\:/ITI/Kotlin/Project/weather/app/src/main/res/menu/main_menu.xml" value="0.264" />
       </map>
     </option>
