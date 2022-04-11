@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +56,7 @@ class SettingsFragment : Fragment() {
             )[SettingsViewModel::class.java]
 
         val lang = sharedPreferences.getString(Utils.LANGUAGE_SETTING, "en")
-        val unit = sharedPreferences.getString(Utils.PREFS_FILE_NAME, "metric")
+        val unit = sharedPreferences.getString(Utils.UNIT_SETTING, "metric")
 
         when (lang) {
             "en" -> binding.englishRadio.isChecked = true
@@ -70,78 +71,38 @@ class SettingsFragment : Fragment() {
 
         binding.mapRadio.isChecked = true
 
-        binding.arabicRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
-                changeLang("ar")
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "no internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+        if (isNetworkAvailable(requireContext())) {
+            binding.arabicRadio.setOnClickListener(View.OnClickListener {
+                    changeLang("ar")
+            })
 
-        })
+            binding.englishRadio.setOnClickListener(View.OnClickListener {
+                    changeLang("en")
+            })
 
-        binding.englishRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
-                changeLang("en")
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "no internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+            binding.celsiusRadio.setOnClickListener(View.OnClickListener {
+                    changeUnite("metric")
+            })
 
-        binding.celsiusRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
-                changeUnite("metric")
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "no internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-        binding.kelvinRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
-                changeUnite("standard")
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "no internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-        binding.fahrenheitRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
-                changeUnite("imperial")
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "no internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+            binding.kelvinRadio.setOnClickListener(View.OnClickListener {
+                    changeUnite("standard")
+            })
+            binding.fahrenheitRadio.setOnClickListener(View.OnClickListener {
+                    changeUnite("imperial")
+            })
 
-        binding.mapRadio.setOnClickListener(View.OnClickListener {
-            if (isNetworkAvailable(requireContext())) {
+            binding.mapRadio.setOnClickListener(View.OnClickListener {
                 val refresh = Intent(requireContext(), MapActivity::class.java)
                 activity?.finish()
                 startActivity(refresh)
-            } else {
+            })
+        } else {
                 Toast.makeText(
                     requireContext(),
                     "no internet connection",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        })
     }
 
 
@@ -149,6 +110,9 @@ class SettingsFragment : Fragment() {
         editor.putString(Utils.UNIT_SETTING, unit)
         viewModel.refreshData()
         editor.apply()
+        val refresh = Intent(requireContext(), MainActivity::class.java)
+        activity?.finish()
+        startActivity(refresh)
     }
 
 

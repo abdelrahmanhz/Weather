@@ -23,4 +23,7 @@ interface WeatherDao {
 
     @Query("SELECT * FROM weather WHERE isFav = 1")
     fun getFavorites(): List<OneCallWeather>
+
+    @Query("DELETE FROM Weather WHERE isFav=0")
+    fun deleteHomeWeather()
 }

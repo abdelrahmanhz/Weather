@@ -30,6 +30,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 class MapsFragment : Fragment() , OnMapReadyCallback, GoogleMap.OnMapClickListener{
 
@@ -75,7 +77,10 @@ class MapsFragment : Fragment() , OnMapReadyCallback, GoogleMap.OnMapClickListen
             if(currentMarker != null && latitude != 0f && longitude != 0f){
                 val city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext())
                 Log.i("TAG", "city: $city")
-                viewModel.getFavWeather(latitude, longitude, lang, unit, city)
+                CoroutineScope(Dispatchers.IO).run{
+                    viewModel.getFavWeather(latitude, longitude, lang, unit, city)
+                }
+
                 val action = MapsFragmentDirections.actionMapsFragmentToFavoritesFragment()
                 it.findNavController().navigate(action)
             }

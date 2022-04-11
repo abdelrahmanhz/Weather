@@ -77,6 +77,7 @@ class Repository(
             if (latitude != 0f && longitude != 0f){
                 //deleteNotFav()
                 response.body()!!.city = city
+                deleteHomeWeather()
                 insertWeather(response.body()!!)
             }
             return response.body()!!
@@ -111,6 +112,8 @@ class Repository(
             val favs = local.getFavorites()
             for (fav in favs) {
                 Log.i("TAG", "$units $lang")
+                lang = sharedPref.getString(Utils.LANGUAGE_SETTING, "en").toString()
+                units = sharedPref.getString(Utils.UNIT_SETTING, "metric").toString()
                 getFavWeather(fav.lat.toFloat(), fav.lon.toFloat(), lang, units, fav.city)
             }
         }
@@ -161,6 +164,10 @@ class Repository(
         }else{
             throw Exception(response.message())
         }
+    }
+
+    override fun deleteHomeWeather() {
+        local.deleteHomeWeather()
     }
 
 

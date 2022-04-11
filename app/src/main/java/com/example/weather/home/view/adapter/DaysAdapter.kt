@@ -26,7 +26,6 @@ class DaysAdapter(
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
-        Log.i("TAG", "onCreateViewHolder")
         val view =  LayoutInflater.from(parent.context).inflate(R.layout.day_item, parent, false)
         return DaysViewHolder(view)
     }

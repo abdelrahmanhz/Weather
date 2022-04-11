@@ -22,6 +22,8 @@ import com.example.weather.favorites.viewmodel.FavoritesViewModelFactory
 import com.example.weather.model.OneCallWeather
 import com.example.weather.model.Repository
 import com.example.weather.model.Utils
+import com.example.weather.model.Utils.getCity
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,16 +43,13 @@ class FavoritesFragment : Fragment() {
     private lateinit var adapter: FavoritesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i("TAG", "Fav onCreate")
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.i("TAG", "Fav onCreateView")
         binding = FragmentFavoritesBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -58,23 +57,16 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initPrefs()
-        Log.i("TAG", "Fav onViewCreated")
-
 
         binding.fabAddFav.setOnClickListener(View.OnClickListener {
             activity?.let{
-//                editor.putString(Utils.MAP_SETTING, "1")
-//                editor.commit()
-//                val intent = Intent (it, MapActivity::class.java)
-//                it.startActivity(intent)
                 val action = FavoritesFragmentDirections.actionFavoritesFragmentToMapsFragment()
                 it.findNavController(view.id).navigate(action)
             }
         })
+
         binding.rvFav.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding.rvFav.hasFixedSize()
-
-
 
         viewModel =
             ViewModelProvider(
@@ -118,6 +110,7 @@ class FavoritesFragment : Fragment() {
 //            city = preferences.getString(Utils.CITY_FAV_SETTING, "empty").toString()
             lang = preferences.getString(Utils.LANGUAGE_SETTING, "en").toString()
             unit = preferences.getString(Utils.UNIT_SETTING, "metric").toString()
+            city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext())
             viewModel.getFavWeather(latitude, longitude, lang, unit, city)
         }
         runBlocking {

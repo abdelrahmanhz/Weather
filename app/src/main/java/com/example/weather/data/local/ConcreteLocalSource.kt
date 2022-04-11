@@ -26,4 +26,8 @@ class ConcreteLocalSource(private val weatherDao: WeatherDao): LocalSource {
         Log.i("TAG", "ConcreteLocalSource ${weatherDao.getFavorites()}")
         return weatherDao.getFavorites()
     }
+
+    override fun deleteHomeWeather() {
+        weatherDao.deleteHomeWeather()
+    }
 }

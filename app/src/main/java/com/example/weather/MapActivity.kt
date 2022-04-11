@@ -53,28 +53,28 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClic
         setContentView(binding.root)
         Log.i("TAG", "inside map onCreate")
         //temp
-        if(preferences.getFloat(Utils.LONGITUDE_SETTING, 0f) != 0f && preferences.getString(Utils.MAP_SETTING, "0") == "0"){
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-        else if(preferences.getString(Utils.MAP_SETTING, "0") == "1"){
-            selectLocation()
-        }
-        else{
+//        if(preferences.getFloat(Utils.LONGITUDE_SETTING, 0f) != 0f && ){
+//            startActivity(Intent(this, MainActivity::class.java))
+//            finish()
+//        }
+//        else if(preferences.getString(Utils.MAP_SETTING, "0") == "1"){
+//            selectLocation()
+//        }
+//        else{
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
             fetchLocation()
-        }
+//        }
 
         binding.btnSelectLoc.setOnClickListener {
             if(currentMarker != null){
                 updateSharedPrefs()
-                if(preferences.getString(Utils.MAP_SETTING, "0") == "0"){
+//                if(preferences.getString(Utils.MAP_SETTING, "0") == "0"){
                     startActivity(Intent(this, MainActivity::class.java))
-                }
-                else{
-                    editor.putString(Utils.MAP_SETTING, "0")
-                    editor.commit()
-                }
+//                }
+//                else{
+//                    editor.putString(Utils.MAP_SETTING, "0")
+//                    editor.commit()
+//                }
                 finish()
             }
             else{
@@ -109,17 +109,18 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClic
 
     private fun updateSharedPrefs() {
         Log.i("Map", "long: ${currentLocation?.longitude} & lat: ${currentLocation?.latitude}")
-        if(preferences.getString(Utils.MAP_SETTING, "0") == "1"){
-            editor.putFloat(Utils.LATITUDE_FAV_SETTING, currentMarker!!.position.latitude.toFloat())
-            editor.putFloat(Utils.LONGITUDE_FAV_SETTING, currentMarker!!.position.longitude.toFloat())
-            editor.putString(Utils.CITY_FAV_SETTING, currentMarker!!.position.getCity(this))
-        }
-        else{
-            editor.putBoolean(Utils.IS_FIRST_SETTING, false)
+//        if(preferences.getString(Utils.MAP_SETTING, "0") == "1"){
             editor.putFloat(Utils.LATITUDE_SETTING, currentMarker!!.position.latitude.toFloat())
             editor.putFloat(Utils.LONGITUDE_SETTING, currentMarker!!.position.longitude.toFloat())
             editor.putString(Utils.CITY_SETTING, currentMarker!!.position.getCity(this))
-        }
+            editor.putBoolean(Utils.IS_FIRST_SETTING, false)
+//        }
+//        else{
+//            editor.putBoolean(Utils.IS_FIRST_SETTING, false)
+//            editor.putFloat(Utils.LATITUDE_SETTING, currentMarker!!.position.latitude.toFloat())
+//            editor.putFloat(Utils.LONGITUDE_SETTING, currentMarker!!.position.longitude.toFloat())
+//            editor.putString(Utils.CITY_SETTING, currentMarker!!.position.getCity(this))
+//        }
         editor.commit()
     }
 

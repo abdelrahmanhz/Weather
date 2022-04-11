@@ -79,8 +79,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun showDialogTest() {
         // set initial preferences
-        val isFirst = preferences.getBoolean(Utils.IS_FIRST_SETTING, true)
-        if (isFirst){
+//        val isFirst = preferences.getBoolean(Utils.IS_FIRST_SETTING, true)
+//        if (isFirst){
             //startActivity(Intent(this, MapActivity::class.java))
 //            val manager: FragmentManager = supportFragmentManager
 //            val transaction = manager.beginTransaction()
@@ -90,10 +90,10 @@ class MainActivity : AppCompatActivity() {
 //            editor.putBoolean(Utils.IS_FIRST_SETTING, false)
 //            editor.commit()
             initUI()
-        }
-        else{
-            initUI()
-        }
+//        }
+//        else{
+//            initUI()
+//        }
     }
 
     private fun initPrefs() {

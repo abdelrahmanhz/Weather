@@ -1,6 +1,5 @@
 package com.example.weather.data.local
 
-import androidx.lifecycle.LiveData
 import com.example.weather.model.OneCallWeather
 
 interface LocalSource {
@@ -10,4 +9,5 @@ interface LocalSource {
     fun deleteByCity(city :String)
     fun getHomeWeather(): OneCallWeather
     fun getFavorites(): List<OneCallWeather>
+    fun deleteHomeWeather()
 }

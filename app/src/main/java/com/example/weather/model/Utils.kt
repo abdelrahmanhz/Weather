@@ -4,11 +4,15 @@ import android.content.Context
 import android.location.Address
 import android.location.Geocoder
 import android.net.ConnectivityManager
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import com.example.weather.R
 import com.google.android.gms.maps.model.LatLng
 import java.io.IOException
+import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 object Utils {
@@ -68,7 +72,7 @@ object Utils {
         if (!addresses.isNullOrEmpty()) {
             val state = addresses[0].adminArea
             val country = addresses[0].countryName
-            city = "$state"
+            city = state
         }
         return city
     }
@@ -144,9 +148,45 @@ object Utils {
     }
 
     fun Int.getTime(lang: String): String {
+        val simpleDateFormat = SimpleDateFormat("hh:mm aaa", Locale(lang))
+        val dateString = simpleDateFormat.format(this * 1000L)
+        return String.format(dateString)
+//        val calendar = Calendar.getInstance()
+//        calendar.timeInMillis = (this * 1000).toLong()
+//        val format = SimpleDateFormat("hh:00 aaa", Locale(lang))
+//        return format.format(calendar.time)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun String.convertTimeToLong():Long{
+
+        //type of med , long time user insert from calender ang compare it with get days
+        val localDate = LocalDate.now()
+
+        val timeAndDate="${localDate.dayOfMonth}-"+ localDate.getMonthValue() + "-" + "${localDate.getYear()}" + " " + this
+        val timeInMilliseconds: Long
+        val sdf = SimpleDateFormat("dd-MM-yyyy hh:mm a")
+        var mDate: Date? = null
+        try {
+            mDate = sdf.parse(timeAndDate)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        Log.i("TAG", "Date m datee: $mDate")
+        timeInMilliseconds = mDate!!.time
+        return timeInMilliseconds
+    }
+
+    fun String.convertDateToMillis(): Long {
+        val sdf = SimpleDateFormat("dd/M/yyyy")
         val calendar = Calendar.getInstance()
-        calendar.timeInMillis = (this * 1000).toLong()
-        val format = SimpleDateFormat("hh:00 aaa", Locale(lang))
-        return format.format(calendar.time)
+        try {
+            val date = sdf.parse(this)
+            calendar.time = date
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return calendar.timeInMillis
     }
 }

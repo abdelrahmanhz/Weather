@@ -22,4 +22,6 @@ interface RepositoryInterface {
         units: String,
         city: String
     )
+
+    fun deleteHomeWeather()
 }

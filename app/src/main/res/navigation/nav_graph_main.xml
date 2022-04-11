@@ -48,6 +48,7 @@
         tools:layout="@layout/fragment_maps">
         <action
             android:id="@+id/action_mapsFragment_to_favoritesFragment"
-            app:destination="@id/favoritesFragment" />
+            app:destination="@id/favoritesFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>
