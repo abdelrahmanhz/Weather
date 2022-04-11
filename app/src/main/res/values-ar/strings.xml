@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false" >Hello blank fragment</string>
+    <string name="language">اللغة</string>
+    <string name="english">الإنجليزية</string>
+    <string name="arabic">العربية</string>
+    <string name="location">الموقع</string>
+    <string name="gps">جي بي اس</string>
+    <string name="map">خريطة أو جي بي اس</string>
+    <string name="units">الوحدات</string>
+    <string name="celsius">سيلزيوس</string>
+    <string name="fahrenheit">فهرنهايت</string>
+    <string name="kelvin">كيلفن</string>
+    <string name="weather" translatable="false">Weather+</string>
+    <string name="value">قيمة</string>
+    <string name="status">الوضع</string>
+    <string name="_23_21_c" translatable="false">23/21 ّ C</string>
+    <string name="city">المدينة</string>
+    <string name="date">التاريخ</string>
+    <string name="c" translatable="false">C</string>
+    <string name="temp">درجة الحرارة</string>
+    <string name="select">اختر</string>
+    <string name="hour">9 AM</string>
+    <string name="Home">الرئيسية</string>
+    <string name="Alerts">التحذيرات</string>
+    <string name="weatherDetails">تفاصيل الطقس</string>
+    <string name="mapLabel">الخريطة</string>
+    <string name="settings">الإعدادات</string>
+    <string name="favorites">المفضلة</string>
+    <string name="today">اليوم</string>
+</resources>

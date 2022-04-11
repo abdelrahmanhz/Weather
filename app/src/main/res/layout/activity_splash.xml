@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Weather+"
+        android:text="@string/weather"
         android:textColor="#FF5722"
         android:textSize="16sp"
         android:textStyle="bold|italic"

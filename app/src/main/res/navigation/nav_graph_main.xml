@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.weather.home.view.fragment.HomeFragment"
-        android:label="Home"
+        android:label="@string/Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.weather.favorites.view.fragment.FavoritesFragment"
-        android:label="Favorites"
+        android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
             android:id="@+id/action_favoritesFragment_to_favDetailsFragment"
@@ -25,17 +25,17 @@
     <fragment
         android:id="@+id/alertsFragment"
         android:name="com.example.weather.alerts.view.AlertsFragment"
-        android:label="Alerts"
+        android:label="@string/Alerts"
         tools:layout="@layout/fragment_alerts" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.weather.settings.view.SettingsFragment"
-        android:label="Settings"
+        android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/favDetailsFragment"
         android:name="com.example.weather.favorites.view.fragment.FavDetailsFragment"
-        android:label="Weather Details"
+        android:label="@string/weatherDetails"
         tools:layout="@layout/fragment_fav_details">
         <argument
             android:name="cityName"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.weather.MapsFragment"
-        android:label="Map"
+        android:label="@string/mapLabel"
         tools:layout="@layout/fragment_maps">
         <action
             android:id="@+id/action_mapsFragment_to_favoritesFragment"

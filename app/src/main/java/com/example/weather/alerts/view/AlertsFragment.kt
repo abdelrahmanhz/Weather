@@ -31,9 +31,9 @@ class AlertsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.fabAddAlert.setOnClickListener {
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.addToBackStack(null)?.replace(R.id.host_fragment, AlertDialog())
-            transaction?.commit()
+//            val transaction = activity?.supportFragmentManager?.beginTransaction()
+//            transaction?.addToBackStack(null)?.replace(R.id.host_fragment, AlertDialog())
+//            transaction?.commit()
         }
     }
 }

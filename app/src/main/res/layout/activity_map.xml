@@ -12,7 +12,7 @@
         android:id="@+id/btnSelectLoc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select"
+        android:text="@string/select"
         app:cornerRadius="20dp"
         android:layout_margin="30dp"
         android:padding="20dp"

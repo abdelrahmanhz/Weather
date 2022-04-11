@@ -1,4 +1,4 @@
-<resources>
+<resources >
     <string name="app_name">Weather</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -12,4 +12,21 @@
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
     <string name="kelvin">Kelvin</string>
+    <string name="weather">Weather+</string>
+    <string name="value">value</string>
+    <string name="status">status</string>
+    <string name="_23_21_c">23/21 ّ C</string>
+    <string name="city">City</string>
+    <string name="date">date</string>
+    <string name="c">C</string>
+    <string name="temp">18</string>
+    <string name="select">Select</string>
+    <string name="hour">9 AM</string>
+    <string name="Home">Home</string>
+    <string name="Alerts">Alerts</string>
+    <string name="weatherDetails">Weather Details</string>
+    <string name="mapLabel">Map</string>
+    <string name="settings">Settings</string>
+    <string name="favorites">Favorites</string>
+    <string name="today">Today</string>
 </resources>

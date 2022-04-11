@@ -21,14 +21,15 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="9 AM"
+            android:text="@string/hour"
             android:textColor="#FFFFFF"
             android:textSize="10sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hour_temperature" />
+            app:layout_constraintTop_toBottomOf="@+id/hour_temperature"
+            tools:ignore="SmallSp" />
 
         <ImageView
             android:id="@+id/hours_icon"
@@ -46,7 +47,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:text="26 C"
+            android:text="@string/value"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

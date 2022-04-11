@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/homeRoot"
@@ -41,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Cairo"
+                    android:text="@string/city"
                     android:textAlignment="center"
                     android:textColor="#FF5722"
                     android:textSize="20sp"
@@ -55,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="date"
+                    android:text="@string/date"
                     android:textAlignment="center"
                     android:textColor="#FF9800"
                     android:textSize="16sp"
@@ -79,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="weather"
+                    android:text="@string/weather"
                     android:textColor="#FF5722"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/weather_icon"
@@ -91,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="C"
+                    android:text="@string/c"
                     android:textColor="#FF9800"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -104,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="24dp"
-                    android:text="18"
+                    android:text="@string/temp"
                     android:textColor="#FA6739"
                     android:textSize="120sp"
                     android:textStyle="bold"
@@ -189,21 +188,11 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/pressure_icon"
                             app:layout_constraintStart_toStartOf="@+id/pressure_icon"
                             app:layout_constraintTop_toBottomOf="@+id/pressure_icon" />
-
-                        <!--                        <TextView-->
-                        <!--                            android:id="@+id/pressure"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:text="Pressure"-->
-                        <!--                            android:textColor="@color/white"-->
-                        <!--                            app:layout_constraintEnd_toEndOf="@+id/pressure_value"-->
-                        <!--                            app:layout_constraintStart_toStartOf="@+id/pressure_value"-->
-                        <!--                            app:layout_constraintTop_toBottomOf="@+id/pressure_value" />-->
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -235,23 +224,11 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/humidity_icon"
                             app:layout_constraintStart_toStartOf="@+id/humidity_icon"
                             app:layout_constraintTop_toBottomOf="@+id/humidity_icon" />
-
-                        <!--                        <TextView-->
-                        <!--                            android:id="@+id/humidity"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:layout_marginTop="4dp"-->
-                        <!--                            android:text="Humidity"-->
-                        <!--                            android:textColor="@color/white"-->
-                        <!--                            app:layout_constraintEnd_toEndOf="@+id/humidity_value"-->
-                        <!--                            app:layout_constraintStart_toStartOf="@+id/humidity_value"-->
-                        <!--                            app:layout_constraintTop_toBottomOf="@+id/humidity_value" />-->
-
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -282,22 +259,11 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/wind_icon"
                             app:layout_constraintStart_toStartOf="@+id/wind_icon"
                             app:layout_constraintTop_toBottomOf="@+id/wind_icon" />
-
-                        <!--                        <TextView-->
-                        <!--                        android:id="@+id/wind"-->
-                        <!--                        android:layout_width="wrap_content"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:layout_marginTop="4dp"-->
-                        <!--                        android:text="Wind"-->
-                        <!--                        android:textColor="@color/white"-->
-                        <!--                        app:layout_constraintEnd_toEndOf="@+id/wind_value"-->
-                        <!--                        app:layout_constraintStart_toStartOf="@+id/wind_value"-->
-                        <!--                        app:layout_constraintTop_toBottomOf="@+id/wind_value" />-->
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -328,22 +294,11 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/cloud_icon"
                             app:layout_constraintStart_toStartOf="@+id/cloud_icon"
                             app:layout_constraintTop_toBottomOf="@+id/cloud_icon" />
-
-                        <!--                        <TextView-->
-                        <!--                            android:id="@+id/cloud"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:layout_marginTop="4dp"-->
-                        <!--                            android:text="Cloud"-->
-                        <!--                            android:textColor="@color/white"-->
-                        <!--                            app:layout_constraintEnd_toEndOf="@+id/cloud_value"-->
-                        <!--                            app:layout_constraintStart_toStartOf="@+id/cloud_value"-->
-                        <!--                            app:layout_constraintTop_toBottomOf="@+id/cloud_value" />-->
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -373,22 +328,12 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/ultra_violette_icon"
                             app:layout_constraintStart_toStartOf="@+id/ultra_violette_icon"
                             app:layout_constraintTop_toBottomOf="@+id/ultra_violette_icon" />
 
-                        <!--                        <TextView-->
-                        <!--                            android:id="@+id/ultra_violette"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:layout_marginTop="4dp"-->
-                        <!--                            android:text="Ultra Violette"-->
-                        <!--                            android:textColor="@color/white"-->
-                        <!--                            app:layout_constraintEnd_toEndOf="@+id/ultra_violette_value"-->
-                        <!--                            app:layout_constraintStart_toStartOf="@+id/ultra_violette_value"-->
-                        <!--                            app:layout_constraintTop_toBottomOf="@+id/ultra_violette_value" />-->
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -419,22 +364,11 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:text="value"
+                            android:text="@string/value"
                             android:textColor="@color/white"
                             app:layout_constraintEnd_toEndOf="@+id/visibility_icon"
                             app:layout_constraintStart_toStartOf="@+id/visibility_icon"
                             app:layout_constraintTop_toBottomOf="@+id/visibility_icon" />
-
-                        <!--                        <TextView-->
-                        <!--                            android:id="@+id/txt_visibility"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:layout_marginTop="4dp"-->
-                        <!--                            android:text="Visibility"-->
-                        <!--                            android:textColor="@color/white"-->
-                        <!--                            app:layout_constraintEnd_toEndOf="@+id/txt_visibility_value"-->
-                        <!--                            app:layout_constraintStart_toStartOf="@+id/txt_visibility_value"-->
-                        <!--                            app:layout_constraintTop_toBottomOf="@+id/txt_visibility_value" />-->
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

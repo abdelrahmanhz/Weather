@@ -37,7 +37,7 @@ class DaysAdapter(
         val unit = sharedPreferences.getString(Utils.UNIT_SETTING, "metric")
 
         if (position == 0) {
-            holder.day.text = "Today"
+            holder.day.text = context.getString(R.string.today)
         } else {
             holder.day.text = days[position].dt.getThatDay(lang)
 
