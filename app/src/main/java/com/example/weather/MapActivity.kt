@@ -66,8 +66,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClic
 //        }
 
         binding.btnSelectLoc.setOnClickListener {
-            if(currentMarker != null){
-                updateSharedPrefs()
+            if(Utils.isNetworkAvailable(this)){
+                if(currentMarker != null){
+                    updateSharedPrefs()
 //                if(preferences.getString(Utils.MAP_SETTING, "0") == "0"){
                     startActivity(Intent(this, MainActivity::class.java))
 //                }
@@ -75,11 +76,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapClic
 //                    editor.putString(Utils.MAP_SETTING, "0")
 //                    editor.commit()
 //                }
-                finish()
+                    finish()
+                }
+                else{
+                    Toast.makeText(this, "please, mark a location", Toast.LENGTH_LONG).show()
+                }
+            }else{
+                Toast.makeText(this, "no internet connection, please connect", Toast.LENGTH_LONG).show()
             }
-            else{
-                Toast.makeText(this, "please, mark a location", Toast.LENGTH_LONG).show()
-            }
+
         }
     }
 

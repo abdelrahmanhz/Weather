@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.R
@@ -16,6 +17,8 @@ import com.example.weather.favorites.viewmodel.FavoritesViewModel
 import com.example.weather.model.OneCallWeather
 import com.example.weather.model.Utils
 import com.example.weather.model.Utils.convertNumberToAR
+import com.example.weather.model.Utils.getCity
+import com.google.android.gms.maps.model.LatLng
 
 class FavoritesAdapter (
     private var favs: MutableList<OneCallWeather>,
@@ -39,7 +42,11 @@ class FavoritesAdapter (
     }
 
     override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
-        holder.cityName.text = favs[position].city
+        val cityName = LatLng(favs[position].lat, favs[position].lon).getCity(context, lang)
+        if(Utils.isNetworkAvailable(context) && !cityName.isNullOrEmpty())
+            holder.cityName.text = cityName
+        else
+            holder.cityName.text = favs[position].city
         var tempUnitSymbol: String? = null
         when (unit) {
             "metric" -> tempUnitSymbol = "°c"

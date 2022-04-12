@@ -26,6 +26,8 @@ import com.example.weather.model.Repository
 import com.example.weather.model.Utils
 import com.example.weather.model.Utils.convertNumberToAR
 import com.example.weather.model.Utils.dateFormat
+import com.example.weather.model.Utils.getCity
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.internal.Util
 
@@ -98,7 +100,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun setData(weather: OneCallWeather?) {
-        binding.cityName.text = weather!!.city
+
+        val cityName = LatLng(weather!!.lat, weather.lon).getCity(requireContext(), lang)
+        if(!cityName.isNullOrEmpty())
+            binding.cityName.text = cityName
+        else
+            binding.cityName.text = weather.city
         binding.weatherDate.text = weather.current.dt.dateFormat(lang)
         binding.weatherCondition.text = weather.current.weather[0].description
         binding.temperature.text = weather.current.temp.toInt().convertNumberToAR(lang)

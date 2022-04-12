@@ -43,6 +43,40 @@ object Utils {
         return addresses[0].getAddressLine(0).toString()
     }
 
+    fun LatLng.getCity(context: Context, lang: String): String {
+
+//        val geocoder = Geocoder(context)
+//        val addresses: List<Address>?
+//        val address: Address?
+//        var addressText = ""
+//        val doublelat: Double = this.latitude!!.toDouble()
+//        val doublelong: Double = this.longitude!!.toDouble()
+//
+//        try {
+//
+//            addresses = geocoder.getFromLocation(doublelat, doublelong, 1)
+//
+//            if (null != addresses && !addresses.isEmpty()) {
+//                address = addresses[0]
+//
+//                addressText = address.getAddressLine(0)
+//            }
+//        } catch (e: IOException) {
+//            Log.e("MapsActivity", e.localizedMessage)
+//        }
+//
+//        return addressText
+        var city = ""
+        val geocoder = Geocoder(context, Locale(lang))
+        val addresses= geocoder.getFromLocation(this.latitude, this.longitude, 1)
+        if (!addresses.isNullOrEmpty()) {
+            val state = addresses[0].adminArea
+            val country = addresses[0].countryName
+            city = state
+        }
+        return city
+    }
+
     fun LatLng.getCity(context: Context): String {
 
 //        val geocoder = Geocoder(context)

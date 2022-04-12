@@ -105,7 +105,6 @@ class SettingsFragment : Fragment() {
             }
     }
 
-
     private fun changeUnite(unit: String) {
         editor.putString(Utils.UNIT_SETTING, unit)
         viewModel.refreshData()

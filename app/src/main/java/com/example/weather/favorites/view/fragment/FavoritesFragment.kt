@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,10 +60,16 @@ class FavoritesFragment : Fragment() {
         initPrefs()
 
         binding.fabAddFav.setOnClickListener(View.OnClickListener {
-            activity?.let{
-                val action = FavoritesFragmentDirections.actionFavoritesFragmentToMapsFragment()
-                it.findNavController(view.id).navigate(action)
+            if(Utils.isNetworkAvailable(requireContext())){
+                activity?.let{
+                    val action = FavoritesFragmentDirections.actionFavoritesFragmentToMapsFragment()
+                    it.findNavController(view.id).navigate(action)
+                }
             }
+            else{
+                Toast.makeText(requireContext(), "no internet connection, please connect!", Toast.LENGTH_LONG).show()
+            }
+
         })
 
         binding.rvFav.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -101,18 +108,22 @@ class FavoritesFragment : Fragment() {
                 }
                 .show()
         }
-        Log.i("TAG", "Fav getWeatherForDisplay")
-        if(preferences.getFloat(Utils.LATITUDE_FAV_SETTING, 0f) != 0f
-            && preferences.getFloat(Utils.LONGITUDE_FAV_SETTING, 0f) != 0f){
+        else{
+            if(preferences.getFloat(Utils.LATITUDE_FAV_SETTING, 0f) != 0f
+                && preferences.getFloat(Utils.LONGITUDE_FAV_SETTING, 0f) != 0f){
 
-            latitude = preferences.getFloat(Utils.LATITUDE_FAV_SETTING, 0F)
-            longitude = preferences.getFloat(Utils.LONGITUDE_FAV_SETTING, 0f)
+                latitude = preferences.getFloat(Utils.LATITUDE_FAV_SETTING, 0F)
+                longitude = preferences.getFloat(Utils.LONGITUDE_FAV_SETTING, 0f)
 //            city = preferences.getString(Utils.CITY_FAV_SETTING, "empty").toString()
-            lang = preferences.getString(Utils.LANGUAGE_SETTING, "en").toString()
-            unit = preferences.getString(Utils.UNIT_SETTING, "metric").toString()
-            city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext())
-            viewModel.getFavWeather(latitude, longitude, lang, unit, city)
+                lang = preferences.getString(Utils.LANGUAGE_SETTING, "en").toString()
+                unit = preferences.getString(Utils.UNIT_SETTING, "metric").toString()
+                city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext(), lang)
+                viewModel.getFavWeather(latitude, longitude, lang, unit, city)
+                Log.i("TAG", "Fav getWeatherForDisplay")
+            }
         }
+
+
         runBlocking {
             launch(Dispatchers.IO)
             {

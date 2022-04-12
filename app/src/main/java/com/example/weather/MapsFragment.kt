@@ -75,7 +75,7 @@ class MapsFragment : Fragment() , OnMapReadyCallback, GoogleMap.OnMapClickListen
             )[FavoritesViewModel::class.java]
         binding.btnSelectLoc.setOnClickListener {
             if(currentMarker != null && latitude != 0f && longitude != 0f){
-                val city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext())
+                val city = LatLng(latitude.toDouble(), longitude.toDouble()).getCity(this.requireContext(), lang)
                 Log.i("TAG", "city: $city")
                 CoroutineScope(Dispatchers.IO).run{
                     viewModel.getFavWeather(latitude, longitude, lang, unit, city)
